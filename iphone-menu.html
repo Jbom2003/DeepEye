@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone Menu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(145deg, #fc9a9e 0%, #6dd5ed 100%);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .iphone {
+            width: 375px;
+            height: 812px;
+            background: #000;
+            border-radius: 50px;
+            padding: 12px;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+        
+        .screen {
+            background: linear-gradient(145deg, #fc9a9e 0%, #6dd5ed 100%);
+            width: 100%;
+            height: 100%;
+            border-radius: 40px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 20px 0;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .app-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .app-name {
+            font-size: 12px;
+            color: white;
+            text-align: center;
+        }
+        
+        .dock {
+            margin-top: auto;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+            margin: auto 20px 40px;
+        }
+        
+        .dock-app {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .notch {
+            width: 180px;
+            height: 30px;
+            background: #000;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            z-index: 100;
+        }
+        
+        .home-indicator {
+            width: 140px;
+            height: 5px;
+            background: white;
+            border-radius: 3px;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .search-bar {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            margin: 20px 20px 0;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: white;
+        }
+        
+        /* App specific styles */
+        .phone { background: #4CD964; }
+        .safari { background: linear-gradient(45deg, #1E90FF, #4B0082); }
+        .messages { background: #30D158; }
+        .facetime { background: #30D158; }
+        .photos { background: linear-gradient(45deg, #FF3B30, #FFCC00, #4CD964, #5AC8FA); }
+        .camera { background: #333; }
+        .mail { background: #1E90FF; }
+        .notes { background: #FFCC00; }
+        .reminders { background: white; color: #FF3B30; }
+        .clock { background: #1E1E1E; }
+        .news { background: #FF3B30; }
+        .health { background: #FF2D55; }
+        .maps { background: linear-gradient(45deg, #4CD964, #FFCC00); }
+        .wallet { background: linear-gradient(45deg, #000, #333); }
+        .settings { background: #E0E0E0; color: black; }
+        .app-store { background: linear-gradient(45deg, #0D74F5, #00F7FF); }
+        .podcast { background: linear-gradient(45deg, #FF2D55, #FF9500); }
+        .apple-tv { background: linear-gradient(45deg, #000, #0D74F5); }
+        .plant-app { 
+            background: linear-gradient(45deg, #4CD964, #00F7FF); 
+            position: relative;
+        }
+        
+        .plant-app::before {
+            content: "👁️";
+            position: absolute;
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <div class="iphone">
+        <div class="screen">
+            <div class="notch"></div>
+            <div class="status-bar">
+                <span>9:41</span>
+                <span>
+                    <i class="signal">📶</i>
+                    <i class="wifi">📡</i>
+                    <i class="battery">🔋</i>
+                </span>
+            </div>
+            
+            <div class="app-grid">
+                <div class="app">
+                    <div class="app-icon">🟦</div>
+                    <div class="app-name">Widget</div>
+                </div>
+                <div class="app">
+                    <div class="app-icon facetime">📹</div>
+                    <div class="app-name">FaceTime</div>
+                </div>
+                <div class="app">
+                    <div class="app-icon calendar">10</div>
+                    <div class="app-name">Calendar</div>
+                </div>
+                <div class="app">
+                    <div class="app-icon photos">🖼️</div>
+                    <div class="app-name">Photos</div>
+                </div>
+                <div class="app">
+                    <div class="app-icon camera">📷</div>
+                    <div class="app-name">Camera</div>
+                </div>
+                <div class="app">
+                    <div class="app-icon mail">✉️</div>
+                    <div class="app-name">Mail</div>
+                </div>
+                <div class="app">
+                    <div class="app-icon notes">📝</div>
+                    <div class="app-name">Notes</div>
+                </div>
+                <div class="app">
+                    <div class="app-icon reminders">📋</div>
+                    <div class="app-name">Reminders</div>
+                </div>
+                <div class="app">
+                    <div class="app-icon clock">🕙</div>
+                    <div class="app-name">Clock</div>
+                </div>
+                <div class="app">
+                    <div class="app-icon news">📰</div>
+                    <div class="app-name">News</div>
+                </div>
+                <div class="app">
+                    <div class="app-icon maps">🗺️</div>
+                    <div class="app-name">Maps</div>
+                </div>
+                <div class="app">
+                    <div class="app-icon health">❤️</div>
+                    <div class="app-name">Health</div>
+                </div>
+                <div class="app">
+                    <div class="app-icon wallet">💳</div>
+                    <div class="app-name">Wallet</div>
+                </div>
+                <div class="app">
+                    <div class="app-icon settings">⚙️</div>
+                    <div class="app-name">Settings</div>
+                </div>
+                <div class="app">
+                    <div class="app-icon podcast">🎙️</div>
+                    <div class="app-name">Podcasts</div>
+                </div>
+                <a href="plant-search.html" class="app">
+                    <div class="app-icon plant-app"></div>
+                    <div class="app-name">DeepEye</div>
+                </a>
+                <div class="app">
+                    <div class="app-icon app-store">A</div>
+                    <div class="app-name">App Store</div>
+                </div>
+            </div>
+            
+            <div class="search-bar">
+                <span>🔍 Search</span>
+            </div>
+            
+            <div class="dock">
+                <div class="dock-app phone">📞</div>
+                <div class="dock-app safari">🧭</div>
+                <div class="dock-app messages">💬</div>
+                <div class="dock-app apple-tv">📺</div>
+            </div>
+            
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+</body>
+</html>
